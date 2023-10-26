@@ -8,9 +8,10 @@ const SigninForm = ({
 	setLoginForm: (loginform: boolean) => void;
 	loginForm: boolean;
 }) => {
-	const [confirmLoading, setConfirmLoading] = useState(false);
 	const onFinish = (values: any) => {
 		console.log("Success:", values);
+		try {
+		} catch (error) {}
 	};
 	return (
 		<>
