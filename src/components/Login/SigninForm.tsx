@@ -1,6 +1,9 @@
 import { Form, Button, Input } from "antd";
 import React, { useState } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import { HTTP } from "@/utils/HTTP";
+import toast from "react-hot-toast";
+import useLoginStore from "@/context/logincontext";
 const SigninForm = ({
 	setLoginForm,
 	loginForm,
@@ -8,10 +11,33 @@ const SigninForm = ({
 	setLoginForm: (loginform: boolean) => void;
 	loginForm: boolean;
 }) => {
+	const toggleOpen = useLoginStore((state) => state.toggleOpen);
+
 	const onFinish = (values: any) => {
 		console.log("Success:", values);
 		try {
-		} catch (error) {}
+			const data = {
+				email: values?.signin_email,
+				password: values?.signin_password,
+			};
+			HTTP.post("/api/user/login/password", data)
+				.then((res) => {
+					if (res.data.code === 0) {
+						toast.success("Successfully Signed In");
+						localStorage.setItem("user", JSON.stringify(res.data.message));
+						toggleOpen();
+					} else {
+						toast.error(res.data.message);
+					}
+				})
+				.catch((err) => {
+					toast.error(err.message);
+					localStorage.setItem("user", JSON.stringify(null));
+				});
+		} catch (error) {
+			toast.error("Something went wrong");
+			localStorage.setItem("user", JSON.stringify(null));
+		}
 	};
 	return (
 		<>

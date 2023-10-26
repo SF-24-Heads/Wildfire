@@ -1,8 +1,12 @@
 import { Form, Button, Input, DatePicker, Select } from "antd";
 import React, { useState } from "react";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
+import locale from "antd/es/date-picker/locale/kn_IN";
 import dayjs from "dayjs";
 import data from "./city.json";
+import { HTTP } from "@/utils/HTTP";
+import toast from "react-hot-toast";
+import Recaptcha from "react-google-recaptcha";
+import useLoginStore from "@/context/logincontext";
 const SignupForm = ({
 	setLoginForm,
 	loginForm,
@@ -11,8 +15,48 @@ const SignupForm = ({
 	loginForm: boolean;
 }) => {
 	const [city, setCity] = useState([]);
+	const toggleOpen = useLoginStore((state) => state.toggleOpen);
+
 	const onFinish = (values: any) => {
 		console.log("Success:", values);
+		try {
+			const data = {
+				name: values.signup_name,
+				email: values.signup_email,
+				password: values.password,
+				mobile: values.signup_mobile,
+				college: values.signup_college,
+				city: values.City,
+				state: JSON.parse(values.State).state,
+				dob: values.signup_dob.format("YYYY-MM-DD"),
+				gender: values.signup_gender,
+				yop: values.signup_yop,
+				security_qn: values.security_q,
+				security_ans: values.security_a,
+				captcha: values.captcha,
+			};
+			HTTP.post("/api/user/register_user", data)
+				.then((res) => {
+					if (res.data.code === 0) {
+						toast.success("Successfully Signed In");
+						localStorage.setItem("user", JSON.stringify(res.data.message));
+						toggleOpen();
+					} else if (res.data.code === -1) {
+						for (const key in res.data.message) {
+							toast.error(res.data.message[key][0]);
+						}
+					} else {
+						toast.error(res.data.message);
+					}
+				})
+				.catch((err) => {
+					toast.error(err.message);
+					localStorage.setItem("user", JSON.stringify(null));
+				});
+		} catch (error) {
+			toast.error("Something went wrong");
+			localStorage.setItem("user", JSON.stringify(null));
+		}
 	};
 	const state_city = data.states;
 	return (
@@ -63,7 +107,7 @@ const SignupForm = ({
 					/>
 				</Form.Item>
 				<Form.Item
-					name="signup_phone"
+					name="signup_mobile"
 					rules={[
 						{ required: true, message: "Mobile Number is Required" },
 						{
@@ -182,9 +226,9 @@ const SignupForm = ({
 							{ required: true, message: "State is Required" },
 							({ setFieldValue, getFieldValue }) => ({
 								validator(_, value) {
-									if (JSON.parse(value)?.[0] !== city[0]) {
+									if (JSON.parse(value).districts?.[0] !== city[0]) {
 										setFieldValue("City", null);
-										setCity(JSON.parse(getFieldValue("State")));
+										setCity(JSON.parse(getFieldValue("State")).districts);
 										return Promise.resolve();
 									}
 									return Promise.resolve();
@@ -208,11 +252,8 @@ const SignupForm = ({
 						labelAlign="left"
 					>
 						<Select placeholder="Select your State" bordered={false}>
-							{state_city.map((state) => (
-								<Select.Option
-									value={JSON.stringify(state.districts)}
-									key={state.state}
-								>
+							{state_city.map((state: { districts: any; state: string }) => (
+								<Select.Option value={JSON.stringify(state)} key={state.state}>
 									{state.state}
 								</Select.Option>
 							))}
@@ -333,6 +374,18 @@ const SignupForm = ({
 							</div>
 						}
 						placeholder="Security Answer"
+					/>
+				</Form.Item>
+				<Form.Item
+					name="captcha"
+					rules={[{ required: true, message: "Captcha is Required" }]}
+					hasFeedback
+				>
+					<Recaptcha
+						sitekey="6Ldpbz0UAAAAAHWONmYJCv8nbMwG4w-htCr8iC1p"
+						onChange={(e) => console.log("e", e)}
+						theme="light"
+						className="flex justify-center"
 					/>
 				</Form.Item>
 				<Form.Item>
