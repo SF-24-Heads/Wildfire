@@ -9,4 +9,5 @@ const useLoginStore = create<loginStore>()((set) => ({
 	open: false,
 	toggleOpen: () => set((state) => ({ open: !state.open })),
 }));
+
 export default useLoginStore;
