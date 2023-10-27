@@ -34,3 +34,236 @@ body {
 #login-form .login-form-button {
 	width: 100%;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@600&family=Kaushan+Script&family=Open+Sans&family=Poppins&family=Roboto:wght@300&family=Tangerine:wght@700&family=Yesteryear&display=swap");
+
+.landing-page {
+	background-color: #0f3460;
+	/* background-image: url("https://cdn.wallpapersafari.com/8/55/kViTjs.jpg"); */
+	background-image: url("https://wldfire-new.vercel.app/static/media/homepage.72bd9cd5a522696918a6.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 90%;
+	box-shadow: 0px 16px 20px 4px rgba(0, 0, 0, 0.75);
+	height: 100vh;
+	min-height: 100vh;
+	width: 100%;
+	flex-direction: column;
+	color: white;
+	/* overflow: hidden; */
+	z-index: 1000;
+	position: absolute;
+	transition: 2.5s;
+	top: 0;
+	left: 0;
+	text-align: center;
+	display: flex;
+}
+
+/* transition */
+.landing-page-transitionUp {
+	transform: translateY(-110%);
+}
+.landing-page-transitionDown {
+	transform: translateY(0);
+}
+
+.landing-page-logos {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.landing-page-logos img {
+	height: 8rem;
+	/* width: 80px; */
+	padding: 12.5px;
+}
+
+.landing-page-content {
+	/* margin: 2rem auto; */
+	/* background-color: #533483; */
+	height: auto;
+	width: 60%;
+	margin: auto;
+	transform: translateY(-50px);
+	/* padding: 1rem; */
+}
+.landing-page-content h3 {
+	text-align: center;
+}
+.landing-page-content p {
+	text-align: center;
+}
+.landing-page-content h1 {
+	text-align: center;
+}
+.content-heading {
+	font-size: 2rem;
+	font-weight: bold;
+}
+.content-span {
+	font-size: 1rem;
+}
+.content-name {
+	font-family: "Kaushan Script", cursive;
+	font-size: 10rem;
+	margin: 2rem;
+	margin-bottom: 0rem;
+	color: #fff2f2;
+}
+.scroll-down {
+	margin: auto;
+	position: relative;
+	animation: upDown 3s infinite;
+	z-index: 20;
+}
+
+.scroll-up {
+	margin: auto;
+	position: relative;
+	transform: translateY(-100px);
+	animation: upDown 3s infinite;
+}
+@keyframes upDown {
+	0% {
+		top: 0;
+	}
+	50% {
+		top: 1rem;
+	}
+	100% {
+		top: 0rem;
+	}
+}
+.scroll-button {
+	transition: 0.5s;
+	font-size: 4rem;
+	border-radius: 3px;
+	background-color: #ffffff00;
+	color: white;
+}
+.scroll-button:hover {
+	color: rgb(255, 36, 36);
+}
+button {
+	border-style: none;
+}
+
+/* page 2 starts here  */
+.about {
+	font-size: 3.5rem;
+	margin: 15px 0px;
+	text-align: center;
+}
+
+.about-page {
+	/* background: url('https://media.istockphoto.com/photos/rock-and-roll-picture-id161839324?b=1&k=20&m=161839324&s=170667a&w=0&h=xPebp43HkPrcrrnIc_CV2ntLgiEtkTrLRgUztb-a5Ok='); */
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* height: 100vh; */
+	text-align: center;
+	width: 100vw;
+	color: white;
+	/* background-color: #A5C9CA; */
+	font-size: 1.4rem;
+	display: flex;
+	flex-direction: column;
+	/* overflow: hidden; */
+}
+.about-box {
+	text-align: center;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.about-content {
+	height: fit-content;
+	width: 50vw;
+	background-color: #60497d;
+	margin: auto;
+}
+.about-content-text {
+	font: 1rem;
+	padding: 2rem;
+	margin: auto auto 3rem;
+}
+
+@media screen and (max-width: 900px) {
+	.content-name {
+		font-size: 7rem;
+		margin-bottom: 10rem;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.landing-page-content {
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.content-name {
+		font-size: 4.5rem;
+	}
+	.content-heading {
+		font-size: 1.4rem;
+	}
+	.content-name {
+		margin-bottom: 15rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.content-name {
+		font-size: 3.8rem;
+		margin: 1rem;
+		margin-bottom: 20rem;
+	}
+	.content-heading {
+		font-size: 1.1rem;
+	}
+	.landing-page-content {
+		width: 90%;
+		padding-top: 3rem;
+		margin-bottom: 3rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.content-name {
+		font-size: 3.3rem;
+		margin: 0.5rem;
+		margin-bottom: 15rem;
+	}
+}
+
+.content-logo {
+	width: 40%;
+}
+
+.landing-page-content p {
+	/* text-align: center; */
+
+	padding-left: 2rem;
+
+	font-size: 1.5rem;
+
+	position: relative;
+
+	bottom: 1rem;
+
+	font-family: "Roboto", sans-serif;
+
+	font-weight: 550;
+}
+
+.content-img {
+	width: 100%;
+
+	margin: 3rem auto;
+}
+.content-img:hover {
+	filter: drop-shadow(0px 0px 6px #cb8351);
+}
