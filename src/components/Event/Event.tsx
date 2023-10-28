@@ -23,7 +23,6 @@ const Event = () => {
                     email : "test@test.test"
                 });
             })
-            console.log('participants', participants)
             const data = {
                 token: JSON.parse(localStorage.getItem('user')!).token,
                 event_id: 85,

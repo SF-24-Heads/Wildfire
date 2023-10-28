@@ -14,21 +14,20 @@ export default function Home() {
 	return (
 
 		<>
-		<main>
-			<div className="flex min-h-screen flex-col items-center justify-between p-24">
-				<LandingPage />
-	
-			<div>
-				<Button onClick={toggleOpen} danger>Login</Button>
-			</div>
-			<div>
-				<Button onClick={toggleEventOpen} danger>Event</Button>
-			</div>
-			<Login />
-			<Event/>
-			<About/>
-		</div>
-		</main>
+			<main>
+				<div className="flex min-h-screen flex-col items-center justify-between py-5">
+					{/* <LandingPage /> */}
+					{/* <div>
+						<Button onClick={toggleOpen} danger>Login</Button>
+					</div>
+					<div>
+						<Button onClick={toggleEventOpen} danger>Event</Button>
+					</div> */}
+					{/* <Login />
+					<Event /> */}
+					<About />
+				</div>
+			</main>
 		</>
 	);
 }
