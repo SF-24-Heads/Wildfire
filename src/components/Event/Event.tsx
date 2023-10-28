@@ -16,11 +16,11 @@ const Event = () => {
     const open = useRegisterForEvent((state) => state.open);
     const onFinish = (values: any) => {
         try {
-            const participants = [{ sf_id: leaderId,email : "test@test.test" }];
+            const participants = [{ sf_id: leaderId, email: "test@test.test" }];
             values.sfId.map((SfId: string) => {
                 participants.push({
                     sf_id: SfId,
-                    email : "test@test.test"
+                    email: "test@test.test"
                 });
             })
             const data = {
