@@ -3,10 +3,10 @@ import React from 'react';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Select } from 'antd';
 import ModalProvider from "@/Providers/ModalProvider";
-import useRegisterForEvent from '@/context/registerForEventContext';
+import {useRegisterForEvent} from '@/context/registerForEventContext';
 import { HTTP } from "@/utils/HTTP";
 import toast from 'react-hot-toast';
-
+import { useEventRegData } from '@/context/registerForEventContext';
 const Event = () => {
     const { Option } = Select;
 
@@ -14,7 +14,9 @@ const Event = () => {
     const leaderId = JSON.parse(localStorage.getItem('user')!) ? JSON.parse(localStorage.getItem('user')!).sf_id : null
     const toggleOpen = useRegisterForEvent((state) => state.toggleOpen);
     const open = useRegisterForEvent((state) => state.open);
+    const EventState = useEventRegData();
     const onFinish = (values: any) => {
+
         try {
             const participants = [{ sf_id: leaderId, email: "test@test.test" }];
             values.sfId.map((SfId: string) => {
@@ -33,6 +35,7 @@ const Event = () => {
                 .then((res) => {
                     if (res.data.code === 0) {
                         toast.success("Successfully Registered For the Event");
+                        EventState.getRegistrationStatus(!EventState.runFuncState);
                         toggleOpen();
                     } else {
                         toast.error(res.data.message);
@@ -129,7 +132,7 @@ const Event = () => {
                             </>
                         )}
                     </Form.List>
-                    <Form.Item>
+                    <Form.Item className='flex justify-end'>
                         <Button type="primary" htmlType="submit">
                             Submit
                         </Button>

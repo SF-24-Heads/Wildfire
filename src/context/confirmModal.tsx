@@ -1,14 +1,14 @@
 import { create } from "zustand";
 
-type deRegFromEvent = {
+type confirmModal = {
 	open: boolean;
 	toggleOpen: () => void;
 };
 
-const  useDeregForEvent = create<deRegFromEvent>()((set)=>({
+const  useConfirmModal = create<confirmModal>()((set)=>({
 	open : false,
 	toggleOpen : () => set((state) => ({open : !state.open})),
 }));
 
 
-export default useDeregForEvent;
+export default useConfirmModal;

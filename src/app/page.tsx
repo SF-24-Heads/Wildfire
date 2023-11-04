@@ -1,38 +1,61 @@
 "use client";
-import { Button } from "antd";
-import useLoginStore from "@/context/logincontext";
-import Login from "@/components/Login/Login";
-import Event from "@/components/Event/Event";
-import useRegisterForEvent from "@/context/registerForEventContext";
-import useDeregForEvent from "@/context/deRegContext";
-
+import { useEffect } from "react";
+import { HTTP } from "@/utils/HTTP";
+import { useEventRegData } from "@/context/registerForEventContext";
+import toast from "react-hot-toast";
 import LandingPage from "@/components/LandingPage/LandingPage";
-
 import About from "@/components/About/about";
-import Deregister from "@/components/Deregister/deregister";
+
+
 export default function Home() {
-	const toggleOpen = useLoginStore((state) => state.toggleOpen);
-	const toggleEventOpen = useRegisterForEvent((state) => state.toggleOpen);
-	const toggleDeregOpen = useDeregForEvent((state)=>state.toggleOpen);
+	const EventState = useEventRegData();
+
+
+	//function to get the registered Event Data
+	useEffect(() => {
+		if (localStorage.getItem('user')) {
+			try {
+				const data = {
+					token: JSON.parse(localStorage.getItem("user")!).token
+				};
+				HTTP.post("/api/user/get_registered_events", data)
+					.then((res) => {
+						if (res.data.code === 0) {
+							let WildFireEventData="Not Registered";
+							res.data.message.group.forEach((element : any) => {
+								if(element?.event_id===85){
+									WildFireEventData = element;
+								}
+							});
+							localStorage.setItem("eventData",JSON.stringify(WildFireEventData));
+							EventState.setEventRegData(WildFireEventData);
+							if(WildFireEventData==="Not Registered"){
+								EventState.setRegistrationStatus(false);
+							}
+							else{
+								EventState.setRegistrationStatus(true);
+							}
+						} else {
+							toast.error(res.data.message);
+						}
+					})
+					.catch((err) => {
+						toast.error(err.message);
+					});
+			} catch (error: any) {
+				toast.error("Something went wrong");
+				console.log(error.message);
+			}
+		}
+	}, [EventState.runFuncState])
+
 	return (
 
 		<>
 			<main>
-				<div className="flex min-h-screen flex-col items-center justify-between py-5">
-					{/* <LandingPage /> */}
-					<div>
-						<Button onClick={toggleOpen} danger>Login</Button>
-					</div>
-					<div>
-						<Button onClick={toggleEventOpen} danger>Event</Button>
-					</div>
-					<div>
-						<Button onClick={toggleDeregOpen} danger>Deregister</Button>
-					</div>
-					<Login />
-					<Deregister/>
-					<Event />
-					{/* <About /> */}
+				<div className="flex min-h-screen flex-col items-center justify-between">
+					<LandingPage/>
+					<About/>
 				</div>
 			</main>
 		</>

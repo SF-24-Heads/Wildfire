@@ -4,6 +4,7 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { HTTP } from "@/utils/HTTP";
 import toast from "react-hot-toast";
 import useLoginStore from "@/context/logincontext";
+import { useEventRegData } from "@/context/registerForEventContext";
 const SigninForm = ({
 	setLoginForm,
 	loginForm,
@@ -12,9 +13,10 @@ const SigninForm = ({
 	loginForm: boolean;
 }) => {
 	const toggleOpen = useLoginStore((state) => state.toggleOpen);
+	const EventState = useEventRegData();
+	const LoginState = useLoginStore();
 
 	const onFinish = (values: any) => {
-		console.log("Success:", values);
 		try {
 			const data = {
 				email: values?.signin_email,
@@ -26,6 +28,8 @@ const SigninForm = ({
 						toast.success("Successfully Signed In");
 						localStorage.setItem("user", JSON.stringify(res.data.message));
 						toggleOpen();
+						EventState.getRegistrationStatus(!EventState.runFuncState);
+						LoginState.setLoggedIn(true);
 					} else {
 						toast.error(res.data.message);
 					}

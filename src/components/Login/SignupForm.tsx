@@ -7,6 +7,7 @@ import { HTTP } from "@/utils/HTTP";
 import toast from "react-hot-toast";
 import Recaptcha from "react-google-recaptcha";
 import useLoginStore from "@/context/logincontext";
+import { useEventRegData } from "@/context/registerForEventContext";
 const SignupForm = ({
 	setLoginForm,
 	loginForm,
@@ -16,6 +17,8 @@ const SignupForm = ({
 }) => {
 	const [city, setCity] = useState([]);
 	const toggleOpen = useLoginStore((state) => state.toggleOpen);
+	const EventState = useEventRegData();
+	const LoginSate= useLoginStore();
 
 	const onFinish = (values: any) => {
 		console.log("Success:", values);
@@ -41,6 +44,8 @@ const SignupForm = ({
 						toast.success("Successfully Signed In");
 						localStorage.setItem("user", JSON.stringify(res.data.message));
 						toggleOpen();
+						EventState.getRegistrationStatus(!EventState.runFuncState);
+						LoginSate.setLoggedIn(true);
 					} else if (res.data.code === -1) {
 						for (const key in res.data.message) {
 							toast.error(res.data.message[key][0]);

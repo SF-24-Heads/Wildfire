@@ -8,6 +8,7 @@ export default function ModalProvider({
 	handleOk = () => {},
 	handleCancel,
 	footer,
+	closeIcon = true,
 	footerElement = [
 		<Button key="back" onClick={handleCancel}>
 			Cancel
@@ -24,6 +25,7 @@ export default function ModalProvider({
 }: {
 	children: React.ReactNode;
 	open: boolean;
+	closeIcon? : boolean;
 	confirmLoading?: boolean;
 	handleOk?: () => void;
 	handleCancel: () => void;
@@ -38,6 +40,7 @@ export default function ModalProvider({
 				onOk={handleOk}
 				confirmLoading={confirmLoading}
 				onCancel={handleCancel}
+				closeIcon = {closeIcon}
 				footer={footer ? footerElement : null}
 			>
 				<div>{children}</div>
