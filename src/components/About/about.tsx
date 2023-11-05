@@ -2,6 +2,9 @@ import React from 'react';
 
 
 const About = () => {
+    const handleRegister = () => {
+        
+    }
     return (
         <div > 
             <section className="flex items-center bg-stone-100 xl:h-screen font-poppins dark:bg-gray-800 ">
@@ -42,10 +45,10 @@ const About = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                 Lorem ipsum dolor sit amet.
                             </p>
-                            <a href="#"
+                            <button onClick={()=>{handleRegister}}
                                 className="px-4 py-2 text-gray-100 bg-blue-500 rounded dark:bg-blue-400 dark:hover:bg-blue-500 hover:bg-blue-600">
-                                Learn more
-                            </a>
+                                Register
+                            </button>
                         </div>
                     </div>
                 </div>
