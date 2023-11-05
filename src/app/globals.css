@@ -35,13 +35,18 @@ body {
 #login-form .login-form-button {
 	width: 100%;
 }
-#login-form{
+
+#login-form {
 	max-height: 70vh;
 	overflow-y: scroll;
 }
-#login-form::-webkit-scrollbar{
+#login-form::-webkit-scrollbar {
 	display: none;
 }
+body::-webkit-scrollbar {
+	display: none;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@600&family=Kaushan+Script&family=Open+Sans&family=Poppins&family=Roboto:wght@300&family=Tangerine:wght@700&family=Yesteryear&display=swap");
 
 

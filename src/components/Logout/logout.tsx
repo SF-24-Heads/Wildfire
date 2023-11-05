@@ -5,6 +5,7 @@ import React from 'react'
 import { Button } from 'antd';
 import useLoginStore from '@/context/logincontext';
 import useConfirmModal from '@/context/confirmModal';
+import toast from 'react-hot-toast';
 const Logout = () => {
     const LoginState = useLoginStore();
     const confirmModalState = useConfirmModal();
@@ -13,6 +14,7 @@ const Logout = () => {
         LoginState.setLoggedIn(false);
         localStorage.clear();
         confirmModalState.toggleOpen();
+        toast.success("Logged Out Successfully")
     }
 
     return (
