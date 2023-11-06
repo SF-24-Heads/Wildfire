@@ -1,8 +1,6 @@
-'use client';
-
 import ModalProvider from '@/Providers/ModalProvider'
 import React from 'react'
-import useConfirmModal from '@/context/confirmModal';
+import {useConfirmModalDereg} from '@/context/confirmModal';
 import { Button } from 'antd';
 import toast from 'react-hot-toast';
 import { HTTP } from '@/utils/HTTP';
@@ -10,8 +8,8 @@ import { useEventRegData } from '@/context/registerForEventContext';
 
 const Deregister = () => {
 
-    const toggleOpen = useConfirmModal((state) => state.toggleOpen);
-    const open = useConfirmModal((state) => state.open);
+    const toggleOpen = useConfirmModalDereg((state) => state.toggleOpen);
+    const open = useConfirmModalDereg((state) => state.open);
     const EventState= useEventRegData();
 
     const handleDereg = () => {
@@ -60,4 +58,4 @@ const Deregister = () => {
     )
 }
 
-export default Deregister
+export default Deregister;

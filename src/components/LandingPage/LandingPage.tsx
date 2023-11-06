@@ -1,14 +1,10 @@
-import { MenuOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+// import { MenuOutlined } from "@ant-design/icons";
+// import { Button } from "antd";
 import React from "react";
-import useLoginStore from "@/context/logincontext";
-import useConfirmModal from "@/context/confirmModal";
 import Login from "../Login/Login";
 import Logout from "../Logout/logout";
 const LandingPage = () => {
 
-	const LoginState = useLoginStore();
-	const ConfirmModalState = useConfirmModal();
 	return (
 		<div className="landing-page">
 			<div className="flex justify-between">
@@ -52,8 +48,9 @@ const LandingPage = () => {
 					alt="Wildfire"
 				/>
 			</div>
-			<Login />
-			<Logout/>
+			<section id="section07">
+				<a href="#About"><span></span><span></span><span></span></a>
+			</section>
 		</div>
 	);
 };

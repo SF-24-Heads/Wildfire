@@ -1,17 +1,19 @@
 'use client';
 import { Button } from "antd";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRegisterForEvent, useEventRegData } from "@/context/registerForEventContext";
-import useConfirmModal from "@/context/confirmModal";
+import { useConfirmModalDereg, useConfirmModalLogout } from "@/context/confirmModal";
 import Event from "../Event/Event";
 import Deregister from "../Deregister/deregister";
 import useLoginStore from "@/context/logincontext";
 import Logout from "../Logout/logout";
+import Login from "../Login/Login";
 const About = () => {
 
   const EventModalSate = useRegisterForEvent();
   const EventState = useEventRegData();
-  const ConfirmModalState = useConfirmModal();
+  const ConfirmModalDeregState = useConfirmModalDereg();
+  const ConfirmModalLogoutState = useConfirmModalLogout();
   const LoginState = useLoginStore();
   const [isMobile, setIsMobile] = useState(false)
 
@@ -25,11 +27,12 @@ const About = () => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-  })
+    handleResize();
+  }, [])
 
 
   return (
-    <div className="background-about h-[fit-content] min-h-screen bg-gray-800 w-[100vw]">
+    <div id="About" className="background-about h-[fit-content] min-h-screen bg-gray-800 w-[100vw]">
       <div className="flex md:justify-start justify-center mt-8 md:m-12 md:ml-24 items-center text-white gap-4"><h1 className="text-6xl font-semibold">About Us</h1></div>
       <div className="flex overflow-hidden">
         <div>
@@ -49,17 +52,17 @@ const About = () => {
                   EventModalSate.toggleOpen();
                 }
                 else {
-                  ConfirmModalState.toggleOpen();
+                  ConfirmModalDeregState.toggleOpen();
                 }
               }
             }}>{LoginState.isLoggedIn ? (EventState.registered ? "Deregister" : "Register") : "Login"}</Button>
+            {LoginState.isLoggedIn && <Button className="md:w-40 md:!h-14 w-32 !h-10" ghost onClick={() => {
+              ConfirmModalLogoutState.toggleOpen();
+            }}>Logout</Button>}
 
-            {LoginState.isLoggedIn ? (<Button className=" md:w-40 md:!h-14 w-32 !h-10" ghost onClick={() => {
-              ConfirmModalState.toggleOpen();
-            }}>Logout</Button>) : null}
           </div>
         </div>
-       {!isMobile && <div >
+        {!isMobile && <div>
           <div className="about-container h-full">
             <div className="circle c1"></div>
             <div className="circle c2"></div>
@@ -68,7 +71,8 @@ const About = () => {
       </div>
       {LoginState.isLoggedIn && <Event />}
       {LoginState.isLoggedIn && <Deregister />}
-      {!LoginState.isLoggedIn && <Logout />}
+      {LoginState.isLoggedIn && <Logout />}
+      {!LoginState.isLoggedIn && <Login/>}
     </div>
   );
 };

@@ -18,6 +18,11 @@ const Event = () => {
     const onFinish = (values: any) => {
 
         try {
+            if(city===""){
+                toast.error("Please enter the city");
+                return;
+            }
+
             const participants = [{ sf_id: leaderId, email: "test@test.test" }];
             values.sfId.map((SfId: string) => {
                 participants.push({
@@ -67,6 +72,7 @@ const Event = () => {
                     }}
                     className='w-[90%] my-2 mb-3'
                 >
+                    <Option value="">Select The City</Option>
                     <Option value="Delhi">Delhi</Option>
                     <Option value="Mumbai">Mumbai</Option>
                     <Option value="Banglore">Banglore</Option>

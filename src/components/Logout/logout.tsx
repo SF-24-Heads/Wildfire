@@ -1,20 +1,18 @@
-'use client';
-
 import ModalProvider from '@/Providers/ModalProvider'
 import React from 'react'
 import { Button } from 'antd';
 import useLoginStore from '@/context/logincontext';
-import useConfirmModal from '@/context/confirmModal';
+import {useConfirmModalLogout} from '@/context/confirmModal';
 import toast from 'react-hot-toast';
 const Logout = () => {
     const LoginState = useLoginStore();
-    const confirmModalState = useConfirmModal();
+    const confirmModalState = useConfirmModalLogout();
 
     const handleLogout=()=>{
         LoginState.setLoggedIn(false);
         localStorage.clear();
         confirmModalState.toggleOpen();
-        toast.success("Logged Out Successfully")
+        toast.success("Logged Out Successfully");
     }
 
     return (
