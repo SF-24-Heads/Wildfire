@@ -34,16 +34,6 @@ const LandingPage = () => {
 						</a>
 					</div>
 				</div>
-				<div className="flex justify-center items-center m-4 ">
-					<Button onClick={() => {
-						if(!LoginState.isLoggedIn){
-							LoginState.toggleOpen();
-						}
-						else{
-							ConfirmModalState.toggleOpen();
-						}
-					}} size="large" className="w-[100px]" ghost>{LoginState.isLoggedIn ? "Logout" : "Login"}</Button>
-				</div>
 			</div>
 			<div className="landing-page-content flex flex-col items-center justify-center">
 				<img

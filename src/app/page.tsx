@@ -5,11 +5,12 @@ import { useEventRegData } from "@/context/registerForEventContext";
 import toast from "react-hot-toast";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import About from "@/components/About/about";
+import useLoginStore from "@/context/logincontext";
 
 
 export default function Home() {
 	const EventState = useEventRegData();
-
+	const LoginState = useLoginStore();
 
 	//function to get the registered Event Data
 	useEffect(() => {
@@ -49,6 +50,15 @@ export default function Home() {
 		}
 	}, [EventState.runFuncState])
 
+	useEffect(() => {
+		if(localStorage.getItem("user")){
+			LoginState.setLoggedIn(true);
+		}
+		else{
+			LoginState.setLoggedIn(false);
+		}
+	}, [LoginState.isLoggedIn])
+	
 	return (
 
 		<>

@@ -6,6 +6,7 @@
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255;
+	--blob: #FFA352;
 }
 
 @media (prefers-color-scheme: light) {
@@ -15,14 +16,6 @@
 		--background-end-rgb: 0, 0, 0;
 	}
 }
-
-/* 
-body {
-	color: rgb(var(--foreground-rgb));
-	background: linear-gradient(to bottom,
-			transparent,
-			rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-} */
 
 #login-form .login-form-forgot {
 	float: right;
@@ -40,9 +33,11 @@ body {
 	max-height: 70vh;
 	overflow-y: scroll;
 }
+
 #login-form::-webkit-scrollbar {
 	display: none;
 }
+
 body::-webkit-scrollbar {
 	display: none;
 }
@@ -67,9 +62,10 @@ body::-webkit-scrollbar {
 }
 
 .landing-page-logos {
+	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: space-between;
 }
 
 .landing-page-logos img {
@@ -187,4 +183,84 @@ body::-webkit-scrollbar {
 
 .content-img:hover {
 	filter: drop-shadow(0px 0px 6px #cb8351);
+}
+
+
+/* About Page Css */
+
+.background-about {
+	background: #f22828;
+	background-image: url("/ZenBG-1.png"), url("/ZenBG-2.png");
+	background-repeat: repeat-y, repeat;
+}
+
+.about-container {
+	position: relative;
+	color: #f1f1f1;
+	cursor: pointer;
+	transition: transform 0.4s cubic-bezier(0.23, 1.83, 0.42, 1.19);
+	height: 600px;
+	width: 600px;
+}
+
+.circle {
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	position: absolute;
+	inset: 0;
+	left: -20px;
+	top: 20px;
+	/*transform:translate(-50%,-50%)*/
+	border: 1px solid var(--blob);
+	background-color: var(--blob);
+}
+
+.c2 {
+	background: url('https://media.istockphoto.com/id/1391884768/vector/alternative-band-musicians-concert-with-crowd-silhouettes.jpg?s=612x612&w=0&k=20&c=vzy4deVEqBKVAGXuo5H_Bl2h9khJTq_dO2vNl_uFGCQ=');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.c1 {
+	animation: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate shad,
+		4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite spin;
+}
+
+@keyframes shad {
+	from {
+		box-shadow:
+			0 0 0 var(--blob),
+			0 0 0 var(--blob),
+			0 0 0 var(--blob),
+			0 0 0 var(--blob);
+	}
+
+	to {
+		box-shadow:
+			0 -15px 0 var(--blob),
+			-20px 0 0 var(--blob),
+			0 -20px 0 var(--blob),
+			-15px 0 0 var(--blob);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg) scale(1.01);
+	}
+}
+
+@keyframes spin2 {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(-360deg)scale(1.01);
+	}
 }
