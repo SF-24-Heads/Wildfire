@@ -43,9 +43,10 @@ const SigninForm = ({
 			localStorage.setItem("user", JSON.stringify(null));
 		}
 	};
+
 	return (
 		<>
-			<h1 className="text-center text-4xl font-serif">Sign In</h1>
+			<h1 className="text-center text-4xl font-serif text-white">Sign In</h1>
 			<Form
 				name="normal_login"
 				className="login-form"
@@ -89,7 +90,7 @@ const SigninForm = ({
 					>
 						Log in
 					</Button>
-					Or{" "}
+					<span className="text-white">Or</span>{" "}
 					<p
 						className="text-blue-500 inline-block cursor-pointer"
 						onClick={() => {
