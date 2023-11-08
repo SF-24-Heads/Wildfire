@@ -108,6 +108,10 @@ body::-webkit-scrollbar {
   color: #fff2f2;
 }
 
+.ant-modal-body h1{
+  color: white;
+}
+
 .ant-modal-content {
   background: rgb(0,0,0) !important;
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.3) 100%) !important;
@@ -127,7 +131,7 @@ body::-webkit-scrollbar {
 	font-size: 15px !important;
 	color: #ffffff !important;
 }
-.ant-select-selection-placeholder, .ant-select-selection-item, #normal_sign_up_signup_dob{
+.ant-select-selection-placeholder, .ant-select-selection-item, #normal_sign_up_signup_dob, .anticon-minus-circle{
 	color: #ffffff !important;
 }
 .ant-picker-suffix{
@@ -135,6 +139,9 @@ body::-webkit-scrollbar {
 }
 .ant-form-item-required.ant-form-item-no-colon div{
 	color: white !important;
+}
+.ant-select-selection-placeholder, .ant-select-selection-item{
+  color: black !important;
 }
 
 @media screen and (max-width: 900px) {
@@ -231,13 +238,13 @@ body::-webkit-scrollbar {
 }
 
 .circle {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
   border-radius: 50%;
   position: absolute;
   inset: 0;
-  left: -20px;
-  top: 20px;
+  left: 50px;
+  top: 10%;
   /*transform:translate(-50%,-50%)*/
   border: 1px solid var(--blob);
   background-color: var(--blob);

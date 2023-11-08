@@ -47,7 +47,7 @@ const Deregister = () => {
                 }}
             >
                 <div className='flex justify-center items-center flex-col p-6 gap-8'>
-                    <p className='text-lg font-bold'>Are you sure you want to deregister from event?</p>
+                    <p className='text-lg font-bold text-white'>Are you sure you want to deregister from event?</p>
                     <div className='flex justify-center items-center gap-8'>
                         <Button onClick={()=>{handleDereg()}}>Confirm</Button>
                         <Button onClick={()=>{toggleOpen()}}>Cancel</Button>
