@@ -33,16 +33,16 @@ const About = () => {
 
   return (
 
-    <div id="About" className="box-border pb-10 sm:pb-0 min-h-[100vh] relative background-about flex justify-center items-start overflow-hidden">
-      <div className="px-10 flex flex-col gap-10">
-        <div className="text-white text-5xl font-semibold mt-10">About</div>
+    <div id="About" className="box-border min-h-[100vh] relative background-about flex justify-center items-start !overflow-hidden">
+      <div className="max-[500px]:gap-8 px-10 flex flex-col gap-10">
+        <div className="max-[600px]:text-4xl max-[600px]:mt-6 mt-10 text-white text-5xl font-semibold">About</div>
         <div className="flex justify-between items-center flex-1 gap-8">
-          <div className="text-white text-xl leading-8 w-full">
+          <div className="max-[500px]:text-[16px] max-[600px]:text-lg text-white text-xl leading-8 w-full">
             Wildfire is India's oldest and most prestigious rock band competition. With prizes worth lakhs of rupees and your prestige at stake, wildfire has been the launch pad for many contemporary bands including - Underground Authority, parikrama, Kryptos, Zygnema, Cassini's division, and many more. So be ready to fulfill your love for rock at the wildfire finals at Kharagpur! Wildfire is a western and eastern rock band competition, open to any college or semi-professional band from India and abroad
           </div>
 
         </div>
-        <div className="">
+        <div className="max-[500px]:mb-6 mb-10 flex justify-start gap-5">
           <Button className="md:w-40 md:!h-14 w-32 !h-10" ghost onClick={() => {
             if (!LoginState.isLoggedIn) {
               LoginState.toggleOpen();

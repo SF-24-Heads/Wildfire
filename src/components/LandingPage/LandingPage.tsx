@@ -39,7 +39,7 @@ const LandingPage = () => {
 					}
 					alt="Spring Fest"
 				/>
-				<p className="content-span">presents</p>
+				<p className="content-span text-5xl sm:text-base">presents</p>
 				<img
 					className="content-img"
 					src={
@@ -48,7 +48,7 @@ const LandingPage = () => {
 					alt="Wildfire"
 				/>
 			</div>
-			<section id="section07">
+			<section id="section07" className="translate-y-5">
 				<a href="#About"><span></span><span></span><span></span></a>
 			</section>
 		</div>
