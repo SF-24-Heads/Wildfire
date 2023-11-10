@@ -48,7 +48,7 @@ const LandingPage = () => {
 					alt="Wildfire"
 				/>
 			</div>
-			<section id="section07" className="translate-y-5">
+			<section id="section07" className="">
 				<a href="#About"><span></span><span></span><span></span></a>
 			</section>
 		</div>
