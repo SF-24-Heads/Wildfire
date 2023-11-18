@@ -16,7 +16,6 @@ const Event = () => {
     const open = useRegisterForEvent((state) => state.open);
     const EventState = useEventRegData();
     const onFinish = (values: any) => {
-
         try {
             if(city===""){
                 toast.error("Please enter the city");
@@ -24,7 +23,7 @@ const Event = () => {
             }
 
             const participants = [{ sf_id: leaderId, email: "test@test.test" }];
-            values.sfId.map((SfId: string) => {
+            (values.sfId ? values.sfId : []).map((SfId: string) => {
                 participants.push({
                     sf_id: SfId,
                     email: "test@test.test"
@@ -85,15 +84,6 @@ const Event = () => {
                 >
                     <Form.List
                         name="sfId"
-                        rules={[
-                            {
-                                validator: async (_, sfId) => {
-                                    if (!sfId || sfId.length < 3) {
-                                        return Promise.reject(new Error('At least 4 participants are required for the event'));
-                                    }
-                                },
-                            },
-                        ]}
                     >
                         {(fields, { add, remove }, { errors }) => (
                             <>
@@ -138,8 +128,8 @@ const Event = () => {
                             </>
                         )}
                     </Form.List>
-                    <Form.Item className='flex justify-end'>
-                        <Button type="primary" htmlType="submit">
+                    <Form.Item className='flex justify-end !w-[100%]'>
+                        <Button ghost  htmlType="submit" className='!w-[100%] md:!h-14 !h-10'>
                             Submit
                         </Button>
                     </Form.Item>

@@ -381,3 +381,8 @@ body::-webkit-scrollbar {
     opacity: 0;
   }
 }
+
+/* full Size Button  */
+.ant-form-item-row{
+  width: 100% !important;
+}

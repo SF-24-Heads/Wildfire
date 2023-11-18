@@ -84,15 +84,15 @@ const SigninForm = ({
 
 				<Form.Item>
 					<Button
-						type="primary"
 						htmlType="submit"
 						className="login-form-button"
+						ghost
 					>
 						Log in
 					</Button>
 					<span className="text-white">Or</span>{" "}
 					<p
-						className="text-blue-500 inline-block cursor-pointer"
+						className="text-blue-300 inline-block cursor-pointer"
 						onClick={() => {
 							setLoginForm(!loginForm);
 						}}

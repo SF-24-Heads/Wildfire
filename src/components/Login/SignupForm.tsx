@@ -18,7 +18,7 @@ const SignupForm = ({
 	const [city, setCity] = useState([]);
 	const toggleOpen = useLoginStore((state) => state.toggleOpen);
 	const EventState = useEventRegData();
-	const LoginSate= useLoginStore();
+	const LoginSate = useLoginStore();
 
 	const onFinish = (values: any) => {
 		console.log("Success:", values);
@@ -142,7 +142,7 @@ const SignupForm = ({
 					style={{
 						border: "1px solid #d9d9d9",
 						borderRadius: 8,
-						color:"white"
+						color: "white"
 					}}
 					rules={[{ required: true, message: "Date of birth is Required" }]}
 					hasFeedback
@@ -396,7 +396,7 @@ const SignupForm = ({
 				</Form.Item>
 				<Form.Item>
 					<Button
-						type="primary"
+						ghost
 						htmlType="submit"
 						className="login-form-button"
 					>
@@ -404,7 +404,7 @@ const SignupForm = ({
 					</Button>
 					<span className="text-white">Or</span>{" "}
 					<p
-						className="text-blue-500 inline-block cursor-pointer"
+						className="text-blue-300 inline-block cursor-pointer"
 						onClick={() => {
 							setLoginForm(!loginForm);
 						}}
