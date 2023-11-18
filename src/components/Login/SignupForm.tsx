@@ -66,7 +66,7 @@ const SignupForm = ({
 	const state_city = data.states;
 	return (
 		<>
-			<h1 className="text-center text-4xl font-serif">Sign Up</h1>
+			<h1 className="text-center text-4xl font-serif text-white">Sign Up</h1>
 			<Form
 				name="normal_sign_up"
 				className="login-form"
@@ -142,12 +142,13 @@ const SignupForm = ({
 					style={{
 						border: "1px solid #d9d9d9",
 						borderRadius: 8,
+						color:"white"
 					}}
 					rules={[{ required: true, message: "Date of birth is Required" }]}
 					hasFeedback
 					colon={false}
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20 inline-block text-base">
+						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-20 inline-block text-base">
 							DOB
 						</div>
 					}
@@ -171,7 +172,7 @@ const SignupForm = ({
 					}}
 					hasFeedback
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20 inline-block text-base">
+						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-20 inline-block text-base">
 							Gender
 						</div>
 					}
@@ -193,7 +194,7 @@ const SignupForm = ({
 					}}
 					hasFeedback
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20 inline-block text-base">
+						<div className="border-r-2 p-2 text-white border-[#d9d9d9] mr-2 w-20 inline-block text-base">
 							YOP
 						</div>
 					}
@@ -401,7 +402,7 @@ const SignupForm = ({
 					>
 						Sign Up
 					</Button>
-					Or{" "}
+					<span className="text-white">Or</span>{" "}
 					<p
 						className="text-blue-500 inline-block cursor-pointer"
 						onClick={() => {

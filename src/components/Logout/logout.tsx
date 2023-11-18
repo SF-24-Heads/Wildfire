@@ -25,7 +25,7 @@ const Logout = () => {
                 }}
             >
                 <div className='flex justify-center items-center flex-col p-6 gap-8'>
-                    <p className='text-lg font-bold'>Are you sure you want to Logout?</p>
+                    <p className='text-lg font-bold text-white'>Are you sure you want to Logout?</p>
                     <div className='flex justify-center items-center gap-8'>
                         <Button onClick={()=>{handleLogout()}}>Confirm</Button>
                         <Button onClick={()=>{confirmModalState.toggleOpen()}}>Cancel</Button>
