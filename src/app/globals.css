@@ -108,13 +108,18 @@ body::-webkit-scrollbar {
   color: #fff2f2;
 }
 
-.ant-modal-body h1{
+.ant-modal-body h1 {
   color: white;
 }
 
 .ant-modal-content {
-  background: rgb(0,0,0) !important;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.3) 100%) !important;
+  background: rgb(0, 0, 0) !important;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 20%,
+    rgba(0, 0, 0, 0.3) 100%
+  ) !important;
   /* background: rgba(0, 0, 0, 0.55) !important; */
   box-shadow: 0 8px 32px 10px rgba(103, 30, 26, 0.4) !important;
   backdrop-filter: blur(2.5px) !important;
@@ -123,24 +128,45 @@ body::-webkit-scrollbar {
   border: 1px solid rgba(103, 30, 26, 0.58) !important;
 }
 
+.contactUsWrapper{
+  background-image: url("/ZenBG-1_11zon.jpg"), url("/ZenBG-2.png");
+  background-repeat: repeat-y, repeat;
+}
+
+.modalCardBoxShadow {
+  /* background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.5) 100%) !important;
+  box-shadow: 0 8px 32px 10px rgba(103, 30, 26, 0.4) !important; */
+  min-height: 380px !important;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
 .ant-modal-close {
   color: white !important;
 }
 
-.ant-picker-input > input::placeholder{
-	font-size: 15px !important;
-	color: #ffffff !important;
+.ant-picker-input > input::placeholder {
+  font-size: 15px !important;
+  color: #ffffff !important;
 }
-.ant-select-selection-placeholder, .ant-select-selection-item, #normal_sign_up_signup_dob, .anticon-minus-circle{
-	color: #ffffff !important;
+.ant-select-selection-placeholder,
+.ant-select-selection-item,
+#normal_sign_up_signup_dob,
+.anticon-minus-circle {
+  color: #ffffff !important;
 }
-.ant-picker-suffix{
-	color: rgba(255, 255, 255, 1) !important;
+.ant-picker-suffix {
+  color: rgba(255, 255, 255, 1) !important;
 }
-.ant-form-item-required.ant-form-item-no-colon div{
-	color: white !important;
+.ant-form-item-required.ant-form-item-no-colon div {
+  color: white !important;
 }
-.ant-select-selection-placeholder, .ant-select-selection-item{
+.ant-select-selection-placeholder,
+.ant-select-selection-item {
   color: black !important;
 }
 
@@ -182,10 +208,10 @@ body::-webkit-scrollbar {
     font-size: 1.1rem;
   }
 
-	.landing-page-content {
-		width: 90%;
-		padding-top: 3rem;
-	}
+  .landing-page-content {
+    width: 90%;
+    padding-top: 3rem;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -194,29 +220,25 @@ body::-webkit-scrollbar {
     margin: 0.5rem;
     margin-bottom: 15rem;
   }
-
 }
-
-
 
 .content-logo {
   width: 40%;
 }
 
-@media screen and (max-width : 650px) {
-  .content-logo{
+@media screen and (max-width: 650px) {
+  .content-logo {
     width: 13rem;
   }
-  
 }
 
-@media screen and (max-width : 400px) {
-  .content-logo{
+@media screen and (max-width: 400px) {
+  .content-logo {
     width: 15rem;
   }
 }
-@media screen and (max-width : 500px) {
-  .landing-page-content{
+@media screen and (max-width: 500px) {
+  .landing-page-content {
     transform: translateY(-5rem);
   }
 }
@@ -244,7 +266,7 @@ body::-webkit-scrollbar {
 
 .background-about {
   background: #f22828;
-  background-image: url("/ZenBG-1.png"), url("/ZenBG-2.png");
+  background-image: url("/ZenBG-1_11zon.jpg"), url("/ZenBG-2.png");
   background-repeat: repeat-y, repeat;
 }
 
@@ -271,7 +293,8 @@ body::-webkit-scrollbar {
 }
 
 .c2 {
-  background: url("https://media.istockphoto.com/id/1391884768/vector/alternative-band-musicians-concert-with-crowd-silhouettes.jpg?s=612x612&w=0&k=20&c=vzy4deVEqBKVAGXuo5H_Bl2h9khJTq_dO2vNl_uFGCQ=");
+  background: url("../../public/testImage2.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -383,6 +406,6 @@ body::-webkit-scrollbar {
 }
 
 /* full Size Button  */
-.ant-form-item-row{
+.ant-form-item-row {
   width: 100% !important;
 }

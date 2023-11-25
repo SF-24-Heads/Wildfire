@@ -2,19 +2,21 @@
 import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { useRegisterForEvent, useEventRegData } from "@/context/registerForEventContext";
-import { useConfirmModalDereg, useConfirmModalLogout } from "@/context/confirmModal";
+import { useConfirmModalDereg, useConfirmModalLogout, useConfirmModalProfile } from "@/context/confirmModal";
 import Event from "../Event/Event";
 import Deregister from "../Deregister/deregister";
 import useLoginStore from "@/context/logincontext";
 import Logout from "../Logout/logout";
 import Login from "../Login/Login";
 import Footer from "../footer/footer";
+import Profile from "../Profile/profile";
 const About = () => {
 
   const EventModalSate = useRegisterForEvent();
   const EventState = useEventRegData();
   const ConfirmModalDeregState = useConfirmModalDereg();
   const ConfirmModalLogoutState = useConfirmModalLogout();
+  const ConfirmModalProifleState = useConfirmModalProfile();
   const LoginState = useLoginStore();
   const [isMobile, setIsMobile] = useState(false)
 
@@ -44,6 +46,7 @@ const About = () => {
             finals at Kharagpur! Wildfire is a western and eastern rock band competition, open to any
             college or semi-professional band from India and abroad.</p>
           <div className="md:ml-[85px] md:mt-14 flex gap-4 justify-center md:justify-start md:items-start">
+            {(!LoginState.isLoggedIn ||  !EventState.registered) && 
             <Button className="md:w-40 md:!h-14 w-32 !h-10" ghost onClick={() => {
               if (!LoginState.isLoggedIn) {
                 LoginState.toggleOpen();
@@ -57,9 +60,14 @@ const About = () => {
                 }
               }
             }}>{LoginState.isLoggedIn ? (EventState.registered ? "Deregister" : "Register") : "Login"}</Button>
+          }
+          {LoginState.isLoggedIn && EventState.registered && <Button className="md:w-40 md:!h-14 w-32 !h-10" ghost onClick={() => {
+              ConfirmModalProifleState.toggleOpen();
+            }}>Profile</Button>}
             {LoginState.isLoggedIn && <Button className="md:w-40 md:!h-14 w-32 !h-10" ghost onClick={() => {
               ConfirmModalLogoutState.toggleOpen();
             }}>Logout</Button>}
+            
 
           </div>
         </div>
@@ -74,6 +82,7 @@ const About = () => {
       {LoginState.isLoggedIn && <Event />}
       {LoginState.isLoggedIn && <Deregister />}
       {LoginState.isLoggedIn && <Logout />}
+      {LoginState.isLoggedIn && <Profile />}
       {!LoginState.isLoggedIn && <Login />}
     </div>
   );

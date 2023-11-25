@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import About from "@/components/About/about";
 import useLoginStore from "@/context/logincontext";
+import ContacUs from "@/components/Contact-Us/contactUs"
 
 
 export default function Home() {
@@ -66,6 +67,7 @@ export default function Home() {
 				<div className="flex min-h-screen flex-col items-center justify-between">
 					<LandingPage/>
 					<About/>
+					{/* <ContacUs/> */}
 				</div>
 			</main>
 		</>
