@@ -72,7 +72,7 @@ const Footer = () => {
 				© 2023 Copyright :
 				<a className="text-white" href="https://springfest.in/">
 					{" "}
-					SPRING FEST
+					SPRING FEST, IIT kharagpur
 				</a>
 			</div>
 		</footer>

@@ -125,7 +125,7 @@ const About = () => {
 			</div>
 			<section
 				id="contactDrop"
-				className="section07 absolute bottom-0 left-[50%]"
+				className="section07 absolute bottom-0 right-0"
 				onClick={(e) => {
 					const contactContainer = document.getElementById("contactContainer");
 					contactContainer!.style.display = "block";
