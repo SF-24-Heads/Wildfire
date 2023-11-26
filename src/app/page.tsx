@@ -6,8 +6,8 @@ import toast from "react-hot-toast";
 import LandingPage from "@/components/LandingPage/LandingPage";
 import About from "@/components/About/about";
 import useLoginStore from "@/context/logincontext";
-import ContacUs from "@/components/Contact-Us/contactUs"
-
+import ContacUs from "@/components/Contact-Us/contactUs";
+import Footer from "@/components/footer/footer";
 
 export default function Home() {
 	const EventState = useEventRegData();
@@ -15,26 +15,28 @@ export default function Home() {
 
 	//function to get the registered Event Data
 	useEffect(() => {
-		if (localStorage.getItem('user')) {
+		if (localStorage.getItem("user")) {
 			try {
 				const data = {
-					token: JSON.parse(localStorage.getItem("user")!).token
+					token: JSON.parse(localStorage.getItem("user")!).token,
 				};
 				HTTP.post("/api/user/get_registered_events", data)
 					.then((res) => {
 						if (res.data.code === 0) {
-							let WildFireEventData="Not Registered";
-							res.data.message.group.forEach((element : any) => {
-								if(element?.event_id===85){
+							let WildFireEventData = "Not Registered";
+							res.data.message.group.forEach((element: any) => {
+								if (element?.event_id === 85) {
 									WildFireEventData = element;
 								}
 							});
-							localStorage.setItem("eventData",JSON.stringify(WildFireEventData));
+							localStorage.setItem(
+								"eventData",
+								JSON.stringify(WildFireEventData)
+							);
 							EventState.setEventRegData(WildFireEventData);
-							if(WildFireEventData==="Not Registered"){
+							if (WildFireEventData === "Not Registered") {
 								EventState.setRegistrationStatus(false);
-							}
-							else{
+							} else {
 								EventState.setRegistrationStatus(true);
 							}
 						} else {
@@ -49,25 +51,29 @@ export default function Home() {
 				console.log(error.message);
 			}
 		}
-	}, [EventState.runFuncState])
+	}, [EventState.runFuncState]);
 
 	useEffect(() => {
-		if(localStorage.getItem("user")){
+		if (localStorage.getItem("user")) {
 			LoginState.setLoggedIn(true);
-		}
-		else{
+		} else {
 			LoginState.setLoggedIn(false);
 		}
-	}, [LoginState.isLoggedIn])
-	
-	return (
+	}, [LoginState.isLoggedIn]);
 
+	return (
 		<>
 			<main>
 				<div className="flex min-h-screen flex-col items-center justify-between">
-					<LandingPage/>
-					<About/>
-					{/* <ContacUs/> */}
+					<LandingPage />
+					<About />
+					<div
+						className="hidden h-0 transition-[width] w-full duration-100 ease-in "
+						id="contactContainer"
+					>
+						<ContacUs />
+					</div>
+					<Footer />
 				</div>
 			</main>
 		</>

@@ -4,7 +4,6 @@ import React from "react";
 import Login from "../Login/Login";
 import Logout from "../Logout/logout";
 const LandingPage = () => {
-
 	return (
 		<div className="landing-page">
 			<div className="flex justify-between">
@@ -48,8 +47,12 @@ const LandingPage = () => {
 					alt="Wildfire"
 				/>
 			</div>
-			<section id="section07" className="">
-				<a href="#About"><span></span><span></span><span></span></a>
+			<section id="AboutDrop" className="section07">
+				<a href="#About">
+					<span></span>
+					<span></span>
+					<span></span>
+				</a>
 			</section>
 		</div>
 	);
