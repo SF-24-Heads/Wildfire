@@ -32,6 +32,7 @@ const Profile = () => {
                     <p className='text-2xl font-bold text-white'>Profile</p>
                     <div className='flex flex-col justify-center items-start gap-8'>
                         <div className="font-bold text-xl text-white">Name : {JSON.parse(localStorage.getItem("user")!).name}</div>
+                        <div className="font-bold text-xl text-white">Band Name : {JSON.parse(localStorage.getItem("user")!).college}</div>
                         <div className="font-bold text-xl text-white">Email : {JSON.parse(localStorage.getItem("user")!).email}</div>
                         <div className="font-bold text-xl text-white">Phone : {JSON.parse(localStorage.getItem("user")!).mobile}</div>
                         {!EventState.registered && <div className='font-bold text-xl text-white mb-3'>You are not registered for the Event</div>}

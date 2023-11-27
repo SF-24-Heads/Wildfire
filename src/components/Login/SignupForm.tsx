@@ -28,14 +28,14 @@ const SignupForm = ({
 				email: values.signup_email,
 				password: values.password,
 				mobile: values.signup_mobile,
-				college: "Default_College",
+				college: values.signup_college,
 				city: values.City,
 				state: JSON.parse(values.State).state,
 				dob: values.signup_dob.format("YYYY-MM-DD"),
 				gender: values.signup_gender,
 				yop: "2024",
-				security_qn: "abc",
-				security_ans: "def",
+				security_qn: "wildfire_question",
+				security_ans: "wildfire_answer",
 				captcha: values.captcha,
 			};
 			HTTP.post("/api/user/register_user", data)
@@ -85,7 +85,7 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Name
 							</div>
 						}
@@ -104,7 +104,7 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Email
 							</div>
 						}
@@ -130,7 +130,7 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Mobile
 							</div>
 						}
@@ -148,7 +148,7 @@ const SignupForm = ({
 					hasFeedback
 					colon={false}
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-24 inline-block text-base">
+						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-25 inline-block text-base">
 							DOB
 						</div>
 					}
@@ -172,7 +172,7 @@ const SignupForm = ({
 					}}
 					hasFeedback
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-24 inline-block text-base">
+						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-25 inline-block text-base">
 							Gender
 						</div>
 					}
@@ -183,6 +183,21 @@ const SignupForm = ({
 						<Select.Option value="F">Female</Select.Option>
 						<Select.Option value="O">Other</Select.Option>
 					</Select>
+				</Form.Item>
+				<Form.Item
+					name="signup_college"
+					rules={[{ required: true, message: "College is Required" }]}
+					hasFeedback
+				>
+					<Input
+						style={{ padding: 0, paddingRight: 11 }}
+						prefix={
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
+								Band Name
+							</div>
+						}
+						placeholder="Enter Your Band Name"
+					/>
 				</Form.Item>
 				<Form.Item style={{ marginBottom: 0 }}>
 					<Form.Item
@@ -210,7 +225,7 @@ const SignupForm = ({
 						colon={false}
 						hasFeedback
 						label={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24 inline-block text-base">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25 inline-block text-base">
 								State
 							</div>
 						}
@@ -250,7 +265,7 @@ const SignupForm = ({
 						colon={false}
 						hasFeedback
 						label={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24 inline-block text-base">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25 inline-block text-base">
 								City
 							</div>
 						}
@@ -273,7 +288,7 @@ const SignupForm = ({
 					<Input.Password
 						style={{ padding: 0, paddingRight: 11, fontSize: 14 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Password
 							</div>
 						}
@@ -304,7 +319,7 @@ const SignupForm = ({
 					<Input.Password
 						style={{ padding: 0, paddingRight: 11, fontSize: 12 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-24">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								CPassword
 							</div>
 						}
