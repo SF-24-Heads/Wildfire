@@ -78,7 +78,7 @@ const Event = () => {
                     <Option value="Shillong">Shillong</Option>
                     <Option value="Kolkata">Kolkata</Option>
                 </Select>
-                <Input placeholder="Participants SF ID" className='w-[90%] my-2 mb-5' value={leaderId} />
+                <Input placeholder="Participants SF ID" className='w-[90%] my-2 mb-5' value={`Your SF_Id : ${leaderId}`} />
                 <Form
                     name="dynamic_form_item"
                     onFinish={onFinish}
@@ -108,7 +108,7 @@ const Event = () => {
                                         >
                                             <Input placeholder="Participants SF ID" style={{ width: '90%' }} />
                                         </Form.Item>
-                                        {fields.length > 3 ? (
+                                        {fields.length > 0 ? (
                                             <MinusCircleOutlined
                                                 className="ml-3 dynamic-delete-button"
                                                 onClick={() => { remove(field.name) }}
