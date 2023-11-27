@@ -67,12 +67,12 @@ export default function Home() {
 				<div className="flex min-h-screen flex-col items-center justify-between">
 					<LandingPage />
 					<About />
-					<div
+					{/* <div
 						className="hidden h-0 transition-[width] w-full duration-100 ease-in "
 						id="contactContainer"
 					>
-						<ContacUs />
-					</div>
+					</div> */}
+					<ContacUs />
 					<Footer />
 				</div>
 			</main>

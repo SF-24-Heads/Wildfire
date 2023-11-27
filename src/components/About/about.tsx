@@ -110,24 +110,7 @@ const About = () => {
 						</div>
 					</div>
 				)}
-				{/* <Footer /> */}
 			</div>
-			<section
-				id="contactDrop"
-				className="section07 absolute bottom-0 left-[50%]"
-				onClick={(e) => {
-					const contactContainer = document.getElementById("contactContainer");
-					contactContainer!.style.display = "block";
-					contactContainer!.style.height = "100%";
-					document.getElementById("contactDrop")!.style.display = "none";
-				}}
-			>
-				<a href="#contactContainer">
-					<span></span>
-					<span></span>
-					<span></span>
-				</a>
-			</section>
 			{LoginState.isLoggedIn && <Event />}
 			{LoginState.isLoggedIn && <Deregister />}
 			{LoginState.isLoggedIn && <Logout />}

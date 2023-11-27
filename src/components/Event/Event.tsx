@@ -75,6 +75,8 @@ const Event = () => {
                     <Option value="Delhi">Delhi</Option>
                     <Option value="Mumbai">Mumbai</Option>
                     <Option value="Banglore">Banglore</Option>
+                    <Option value="Shillong">Shillong</Option>
+                    <Option value="Kolkata">Kolkata</Option>
                 </Select>
                 <Input placeholder="Participants SF ID" className='w-[90%] my-2 mb-5' value={leaderId} />
                 <Form
