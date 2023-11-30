@@ -34,8 +34,8 @@ const SignupForm = ({
 				dob: values.signup_dob.format("YYYY-MM-DD"),
 				gender: values.signup_gender,
 				yop: "2024",
-				security_qn: "wildfire_question",
-				security_ans: "wildfire_answer",
+				security_qn: "abc",
+				security_ans: "abc",
 				captcha: values.captcha,
 			};
 			HTTP.post("/api/user/register_user", data)
