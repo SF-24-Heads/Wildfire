@@ -41,8 +41,11 @@ const Event = () => {
                         toast.success("Successfully Registered For the Event");
                         EventState.getRegistrationStatus(!EventState.runFuncState);
                         toggleOpen();
-                    } else {
-                        toast.error(res.data.message);
+                    } else if(res.data.code === -4) {
+                        toast.error(res.data.message.stmt);
+                    }
+                    else {
+                        toast.error(res.data.message)
                     }
                 })
                 .catch((err) => {

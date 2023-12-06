@@ -18,7 +18,6 @@ const Profile = () => {
         toast.success("Logged Out Successfully");
     }
 
-    console.log('EventState.regdata', EventState.regData);
     return (
         <>
             <ModalProvider
@@ -39,7 +38,7 @@ const Profile = () => {
                         <div className="">
                             {EventState.registered && <div className='font-bold text-xl text-white mb-3'>Team Members : </div>}
                             <ul>
-                                {EventState.registered && EventState.regData.members.map((member: any) => {
+                                {EventState.registered && EventState.regData?.members.map((member: any) => {
                                     return (
                                         <li className="font-bold text-xl text-white ml-8 my-2">{member.member_name} <span className='ml-1'> - {member.member_sfid}</span></li>
                                     )
