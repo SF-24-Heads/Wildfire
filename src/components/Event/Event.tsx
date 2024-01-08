@@ -41,8 +41,11 @@ const Event = () => {
                         toast.success("Successfully Registered For the Event");
                         EventState.getRegistrationStatus(!EventState.runFuncState);
                         toggleOpen();
-                    } else {
-                        toast.error(res.data.message);
+                    } else if(res.data.code === -4) {
+                        toast.error(res.data.message.stmt);
+                    }
+                    else {
+                        toast.error(res.data.message)
                     }
                 })
                 .catch((err) => {
@@ -75,8 +78,10 @@ const Event = () => {
                     <Option value="Delhi">Delhi</Option>
                     <Option value="Mumbai">Mumbai</Option>
                     <Option value="Banglore">Banglore</Option>
+                    <Option value="Shillong">Shillong</Option>
+                    <Option value="Kolkata">Kolkata</Option>
                 </Select>
-                <Input placeholder="Participants SF ID" className='w-[90%] my-2 mb-5' value={leaderId} />
+                <Input placeholder="Participants SF ID" className='w-[90%] my-2 mb-5' value={`Your SF_Id : ${leaderId}`} />
                 <Form
                     name="dynamic_form_item"
                     onFinish={onFinish}
@@ -106,7 +111,7 @@ const Event = () => {
                                         >
                                             <Input placeholder="Participants SF ID" style={{ width: '90%' }} />
                                         </Form.Item>
-                                        {fields.length > 3 ? (
+                                        {fields.length > 0 ? (
                                             <MinusCircleOutlined
                                                 className="ml-3 dynamic-delete-button"
                                                 onClick={() => { remove(field.name) }}

@@ -50,20 +50,9 @@ const About = () => {
 			<div className="flex overflow-hidden">
 				<div>
 					<p className="md:w-[80%] w-[100%] md:text-left text-justify p-8 pb-6 md:p-0 md:ml-[85px] text-white md:leading-[40px]  md:text-2xl text-base md:mt-[44px] mt-[10px]">
-						Spring Fest is the annual Social and Cultural festival of IIT
-						Kharagpur, a pioneer in elite institutions. It marks three days of
-						absolute ecstasy. It is presently approaching its 64th edition in
-						January 2023. Spring Fest receives widespread media coverage and
-						holds a prominent role in college campuses' cultural calendars.
+						Spring Fest is the annual Social and Cultural festival of IIT Kharagpur, a pioneer in elite institutions. It marks three days of absolute ecstasy and is presently approaching its 65th edition in January 2024.
 						<br />
-						Wildfire is one of the biggest, oldest and most prestigious rock
-						band competitions in India. With the promotion and honoring of good
-						music being the only mission of this national rock event while
-						giving out prizes worth lakhs of rupees, it is the most anticipated
-						event of Spring Fest and a launch pad for many contemporary bands
-						like Parikrama, Underground Authority, Agnee, Kryptos, Pineapple
-						Express, Zygnema and many more. <br /> Be ready to fulfill your love
-						for rock at the wildfire finals at IIT Kharagpur!
+						Wildfire is one of the biggest, oldest and most prestigious rock band competitions in India. With the promotion and honoring of good music being the only mission of this national rock event while giving out prizes worth lakhs of rupees, it is the most anticipated event of Spring Fest and a launch pad for many contemporary bands like Parikrama, Underground Authority, Agnee, Kryptos, Pineapple Express, Zygnema and many more.
 					</p>
 					<div className="md:ml-[85px] md:mt-14 flex gap-4 justify-center md:justify-start md:items-start">
 						{(!LoginState.isLoggedIn || !EventState.registered) && (
@@ -121,24 +110,7 @@ const About = () => {
 						</div>
 					</div>
 				)}
-				{/* <Footer /> */}
 			</div>
-			<section
-				id="contactDrop"
-				className="section07 absolute bottom-0 right-0"
-				onClick={(e) => {
-					const contactContainer = document.getElementById("contactContainer");
-					contactContainer!.style.display = "block";
-					contactContainer!.style.height = "100%";
-					document.getElementById("contactDrop")!.style.display = "none";
-				}}
-			>
-				<a href="#contactContainer">
-					<span></span>
-					<span></span>
-					<span></span>
-				</a>
-			</section>
 			{LoginState.isLoggedIn && <Event />}
 			{LoginState.isLoggedIn && <Deregister />}
 			{LoginState.isLoggedIn && <Logout />}

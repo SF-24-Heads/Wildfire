@@ -4,7 +4,7 @@ import headsData from "@/Providers/HeadsData";
 const contactUs = () => {
 	return (
 		<div className="contactUsWrapper w-full py-10 my-10 " id="contact">
-			<div className="text-5xl font-semibold text-white text-center my-5">
+			<div className="text-5xl font-semibold text-white text-center mb-14 mt-[-50px]">
 				Contact Us
 			</div>
 			<div className="flex justify-center items-center w-full flex-wrap gap-y-5 px-5">

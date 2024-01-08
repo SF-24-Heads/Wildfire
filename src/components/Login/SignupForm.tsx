@@ -33,9 +33,9 @@ const SignupForm = ({
 				state: JSON.parse(values.State).state,
 				dob: values.signup_dob.format("YYYY-MM-DD"),
 				gender: values.signup_gender,
-				yop: values.signup_yop,
-				security_qn: values.security_q,
-				security_ans: values.security_a,
+				yop: "2024",
+				security_qn: "abc",
+				security_ans: "abc",
 				captcha: values.captcha,
 			};
 			HTTP.post("/api/user/register_user", data)
@@ -85,7 +85,7 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Name
 							</div>
 						}
@@ -104,7 +104,7 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Email
 							</div>
 						}
@@ -130,7 +130,7 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Mobile
 							</div>
 						}
@@ -148,7 +148,7 @@ const SignupForm = ({
 					hasFeedback
 					colon={false}
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-20 inline-block text-base">
+						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-25 inline-block text-base">
 							DOB
 						</div>
 					}
@@ -172,7 +172,7 @@ const SignupForm = ({
 					}}
 					hasFeedback
 					label={
-						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-20 inline-block text-base">
+						<div className="border-r-2 p-2 border-[#d9d9d9] text-white placeholder-white mr-2 w-25 inline-block text-base">
 							Gender
 						</div>
 					}
@@ -185,32 +185,6 @@ const SignupForm = ({
 					</Select>
 				</Form.Item>
 				<Form.Item
-					name="signup_yop"
-					rules={[{ required: true, message: "Year of Passing is Required" }]}
-					colon={false}
-					style={{
-						border: "1px solid #d9d9d9",
-						borderRadius: 8,
-					}}
-					hasFeedback
-					label={
-						<div className="border-r-2 p-2 text-white border-[#d9d9d9] mr-2 w-20 inline-block text-base">
-							YOP
-						</div>
-					}
-					labelAlign="left"
-				>
-					<Select placeholder="Select your Year Of Passing" bordered={false}>
-						<Select.Option value="2024">2024</Select.Option>
-						<Select.Option value="2025">2025</Select.Option>
-						<Select.Option value="2026">2026</Select.Option>
-						<Select.Option value="2027">2027</Select.Option>
-						<Select.Option value="2028">2028</Select.Option>
-						<Select.Option value="2029">2029</Select.Option>
-						<Select.Option value="2030">2030</Select.Option>
-					</Select>
-				</Form.Item>
-				<Form.Item
 					name="signup_college"
 					rules={[{ required: true, message: "College is Required" }]}
 					hasFeedback
@@ -218,11 +192,11 @@ const SignupForm = ({
 					<Input
 						style={{ padding: 0, paddingRight: 11 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
-								College
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
+								Band Name
 							</div>
 						}
-						placeholder="College"
+						placeholder="Enter Your Band Name"
 					/>
 				</Form.Item>
 				<Form.Item style={{ marginBottom: 0 }}>
@@ -251,7 +225,7 @@ const SignupForm = ({
 						colon={false}
 						hasFeedback
 						label={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20 inline-block text-base">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25 inline-block text-base">
 								State
 							</div>
 						}
@@ -291,7 +265,7 @@ const SignupForm = ({
 						colon={false}
 						hasFeedback
 						label={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20 inline-block text-base">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25 inline-block text-base">
 								City
 							</div>
 						}
@@ -314,7 +288,7 @@ const SignupForm = ({
 					<Input.Password
 						style={{ padding: 0, paddingRight: 11, fontSize: 14 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								Password
 							</div>
 						}
@@ -345,41 +319,11 @@ const SignupForm = ({
 					<Input.Password
 						style={{ padding: 0, paddingRight: 11, fontSize: 12 }}
 						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
+							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-25">
 								CPassword
 							</div>
 						}
 						placeholder="Confirm Password"
-					/>
-				</Form.Item>
-				<Form.Item
-					name="security_q"
-					rules={[{ required: true, message: "Security Question is Required" }]}
-					hasFeedback
-				>
-					<Input
-						style={{ padding: 0, paddingRight: 11, fontSize: 14 }}
-						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
-								SecurityQ
-							</div>
-						}
-						placeholder="Security Question"
-					/>
-				</Form.Item>
-				<Form.Item
-					name="security_a"
-					rules={[{ required: true, message: "Security Answer is Required" }]}
-					hasFeedback
-				>
-					<Input
-						style={{ padding: 0, paddingRight: 11, fontSize: 14 }}
-						prefix={
-							<div className="border-r-2 p-2 border-[#d9d9d9] mr-2 w-20">
-								SecurityA
-							</div>
-						}
-						placeholder="Security Answer"
 					/>
 				</Form.Item>
 				<Form.Item
