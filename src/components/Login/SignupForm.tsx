@@ -142,7 +142,7 @@ const SignupForm = ({
 					style={{
 						border: "1px solid #d9d9d9",
 						borderRadius: 8,
-						color: "white"
+						color: "white",
 					}}
 					rules={[{ required: true, message: "Date of birth is Required" }]}
 					hasFeedback
@@ -388,18 +388,14 @@ const SignupForm = ({
 					hasFeedback
 				>
 					<Recaptcha
-						sitekey="6Ldpbz0UAAAAAHWONmYJCv8nbMwG4w-htCr8iC1p"
+						sitekey="6Lco6EQpAAAAAC52ZX9PY_ryDjDcGp6uhIi8iKIJ"
 						onChange={(e) => console.log("e", e)}
 						theme="light"
 						className="flex justify-center"
 					/>
 				</Form.Item>
 				<Form.Item>
-					<Button
-						ghost
-						htmlType="submit"
-						className="login-form-button"
-					>
+					<Button ghost htmlType="submit" className="login-form-button">
 						Sign Up
 					</Button>
 					<span className="text-white">Or</span>{" "}
